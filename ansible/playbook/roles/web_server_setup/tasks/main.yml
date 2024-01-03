@@ -14,7 +14,7 @@
   ansible.builtin.command:
     cmd: docker build -t {{container_name}} .
   args:
-    chdir: ./cfgmdir  # Specify the directory of your Dockerfile if not in home directory
+    chdir: ./cfgmdir/reactjsapp  # Specify the directory of your Dockerfile if not in home directory
   become: false  # Run as the current user
 
 - name: Run Docker Container
