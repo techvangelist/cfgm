@@ -1,0 +1,21 @@
+- name: Create a record set for {{ subdomain_name }}.{{ domain_name }}
+  community.aws.route53:
+    state: present
+    zone: rosecrisp.com
+    record: "{{ subdomain_name }}.{{ domain_name }}"
+    type: A
+    ttl: 300
+    value: "{{ ec2.instances[0].public_ip_address }}"
+    overwrite: yes  # Ensures existing record is updated
+  when: ec2.instances and ec2.instances[0].public_ip_address is defined
+
+- name: Create a record set for www.{{ subdomain_name }}.{{ domain_name }}
+  community.aws.route53:
+    state: present
+    zone: "{{ domain_name }}"
+    record: "{{ subdomain_name }}.{{ domain_name }}"
+    type: A
+    ttl: 300
+    value: "{{ ec2.instances[0].public_ip_address }}"
+    overwrite: yes  # Ensures existing record is updated
+  when: ec2.instances and ec2.instances[0].public_ip_address is defined

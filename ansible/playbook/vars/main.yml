@@ -1,0 +1,12 @@
+---
+region: us-east-2
+instance_type: t2.micro
+ec2_instance_name: cfgm_instance
+image: ami-059cdad1f35de63c0
+key_name: cfgmkey
+ansible_ssh_user: "ec2-user"
+github_repo: "https://github.com/rosecrisp/rose_cv.git"
+ansible_ssh_private_key_file: ~/.ssh/cfgmkey.pem  # Replace with the path to your SSH key
+domain_name: rosecrisp.com
+subdomain_name: demo
+container_name: rose_cv

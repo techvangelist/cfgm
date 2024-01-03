@@ -1,0 +1,28 @@
+# Tasks related to security group
+- name: Create a security group
+  ec2_group:
+    name: cfgm_my_security_group
+    description: Security Group for EC2 instances
+    region: "{{ region }}"
+    rules:
+      - proto: tcp
+        from_port: 80
+        to_port: 80
+        cidr_ip: 0.0.0.0/0
+        rule_desc: "HTTP"
+      - proto: tcp
+        from_port: 443
+        to_port: 443
+        cidr_ip: 0.0.0.0/0
+        rule_desc: "HTTPS"
+      - proto: tcp
+        from_port: 22
+        to_port: 22
+        cidr_ip: 0.0.0.0/0
+        rule_desc: "SSH"
+    rules_egress:
+      - proto: -1
+        from_port: 0
+        to_port: 0
+        cidr_ip: 0.0.0.0/0
+  register: security_group

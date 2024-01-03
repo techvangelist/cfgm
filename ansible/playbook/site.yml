@@ -1,0 +1,23 @@
+---
+- name: Deploy and Configure EC2 Instance
+  hosts: localhost
+  environment:
+    AWS_PROFILE: "openedx"
+    ANSIBLE_HOST_KEY_CHECKING: False  #do I need this?
+  gather_facts: no
+  vars_files:
+    - vars/main.yml
+  roles:
+    - security_setup
+    - ec2_management
+    - route53_config
+
+- name: Configure instance
+  hosts: launched
+  gather_facts: false
+  become: true
+  vars_files:
+    - vars/main.yml
+  roles:
+    - server_config
+    - web_server_setup
