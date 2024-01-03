@@ -26,9 +26,3 @@
 - name: Show output of Docker run command
   ansible.builtin.debug:
     var: docker_run_output.stdout_lines
-
-- name: Reload Apache to apply changes
-  ansible.builtin.service:
-    name: httpd
-    state: restarted
-  become: true # Run as root

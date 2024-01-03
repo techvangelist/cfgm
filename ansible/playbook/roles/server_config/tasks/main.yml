@@ -45,3 +45,9 @@
     backup: yes
   become: true # Run as root
 
+- name: Reload Apache to apply changes
+  ansible.builtin.service:
+    name: httpd
+    state: restarted
+  become: true # Run as root
+
