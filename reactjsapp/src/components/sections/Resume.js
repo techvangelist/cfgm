@@ -9,7 +9,7 @@ const ResumeSection = () => {
         <div className="row">
           {/* experience */}
           <div className="col col-d-12 col-t-12 col-m-12 border-line-v">
-          {/* <div className="col col-d-6 col-t-6 col-m-12 border-line-v"> */}
+            {/* <div className="col col-d-6 col-t-6 col-m-12 border-line-v"> */}
             <div className="resume-title border-line-h">
               <div className="icon">
                 <i className="fa fa-briefcase" />
@@ -19,16 +19,16 @@ const ResumeSection = () => {
             <div className="resume-items">
               <div className="resume-item border-line-h active">
                 <div className="date">Feb, 2020 - Present</div>
-                <div className="name">Sr Software Engineer</div>
-                <div className="company">Red Hat - Raleigh, NC</div>
+                <div className="name">Senior DevOps Engineer</div>
+                <div className="company">XYZ Corporation, San Francisco, CA</div>
                 <p>
-                   - Deliver tailored, high-touch engineering support by collaborating with partners to construct robust, enterprise-scale solutions leveraging Kubernetes Operators.
-                </p>  
-                <p>
-                   - Facilitate comprehensive training modules for partners to enhance proficiency with the Kubernetes Operator Framework..
+                  - Led the adoption of Ansible across multiple teams, reducing deployment times by 50% and significantly improving scalability and reliability.
                 </p>
                 <p>
-                   - Engineer and present functional Kubernetes Operator demonstrations to showcase potential applications and efficiencies.
+                  - Developed and maintained over 100 Ansible playbooks for configuration management, software deployment, and service orchestration.
+                </p>
+                <p>
+                  - Implemented CI/CD pipelines using Jenkins and Ansible, facilitating more frequent and reliable code releases.
                 </p>
               </div>
               <div className="resume-item border-line-h">
@@ -50,7 +50,7 @@ const ResumeSection = () => {
           </div>
           {/* education */}
           <div className="col col-d-12 col-t-12 col-m-12 border-line-v">
-          {/* <div className="col col-d-6 col-t-6 col-m-12 border-line-v"> */}
+            {/* <div className="col col-d-6 col-t-6 col-m-12 border-line-v"> */}
             <div className="resume-title border-line-h">
               <div className="icon">
                 <i className="fa fa-university" />
@@ -60,10 +60,12 @@ const ResumeSection = () => {
             <div className="resume-items">
               <div className="resume-item border-line-h">
                 <div className="date">1989 - 1992</div>
-                <div className="name">North Carolina State University</div>
+                <div className="name">San Francisco, CA State University</div>
                 <div className="company">Raleigh, NC</div>
                 <p>
-                   Completed 127 credits towards Bachelor of Science in Computer Science
+                Bachelor of Science in Computer Science
+University of California, Berkeley
+September 2010 - May 2014
                 </p>
               </div>
             </div>

@@ -18,6 +18,7 @@
   become: true
   vars_files:
     - vars/main.yml
+    - vars/quay_credentials.yml
   roles:
     - server_config
     - web_server_setup

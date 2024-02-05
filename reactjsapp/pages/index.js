@@ -30,11 +30,8 @@ const RecentWorks = dynamic(
 );
 
 const bio = `<p>
-<strong>Hello! I’m Rose Crisp.</strong>
-As a Cloud Infrastructure Engineer with extensive experience in Kubernetes
-native application development and deployment, I am adept at hosting Learning
-Management Systems (LMS) solutions on the cloud and look forward to discussing
-how we can tailor these technologies to fit your unique ideas.
+<strong>Hello! I’m Alex Jordan.</strong>
+A seasoned DevOps Engineer with a strong focus on automation and infrastructure as code. Specializes in using Ansible to streamline software deployments, configuration management, and continuous integration processes. Demonstrates a proven track record of leveraging Ansible to enhance operational efficiencies, reduce deployment times, and ensure consistency across development, testing, and production environments. Passionate about embracing new technologies to solve complex technical challenges in cloud-based architectures..
 </p>`;
 
 const services = [
@@ -80,10 +77,10 @@ const Index3 = () => {
           {/* profile image */}
           <div
             className="slide"
-            style={{ backgroundImage: "url(images/roseheadshot.jpg)" }}
+            style={{ backgroundImage: "url(images/headshot.jpg)" }}
           />
           {/* profile titles */}
-          <div className="title">Rose Crisp</div>
+          <div className="title">Alex Jordan</div>
 
           <TypingAnimation data={animationText} />
           {/* profile socials */}
@@ -94,10 +91,10 @@ const Index3 = () => {
             <a target="_blank" rel="noreferrer" href="https://twitter.com/">
               <span className="fa fa-twitter" />
             </a> */}
-            <a target="_blank" rel="noreferrer" href="https://github.com/rocrisp">
+            <a target="_blank" rel="noreferrer" href="https://github.com/account">
               <span className="fa fa-github" />
             </a>
-            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/rosecrisp">
+            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/account">
               <span class="fa fa-linkedin" />
             </a>
             {/* <a target="_blank" rel="noreferrer" href="https://www.spotify.com/">
@@ -113,7 +110,7 @@ const Index3 = () => {
           </div>
           {/* profile buttons */}
           <div className="lnks">
-            <a href="/doc/RoseCrisp_cv.pdf" className="lnk" download>
+            <a href="/doc/alex_jordan_cv.pdf" className="lnk" download>
               <span className="text">Download CV</span>
               <span className="ion ion-android-download" />
             </a>

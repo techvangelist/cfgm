@@ -9,4 +9,5 @@ github_repo: "https://github.com/rocrisp/cfgm.git"
 ansible_ssh_private_key_file: ~/.ssh/cfgmkey.pem  # Replace with the path to your SSH key
 domain_name: rosecrisp.com
 subdomain_name: demo
-container_name: rose_cv
+image_name: rose_cv
+image_tag: v1

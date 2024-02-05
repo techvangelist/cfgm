@@ -13,7 +13,7 @@ const Quote = () => {
             <div className="revs-item">
               <div className="text">
                 <div>
-                Change is the law of life. And those who look only to the past or the present are certain to miss the future., President John F. Kennedy.
+                  Change is the law of life. And those who look only to the past or the present are certain to miss the future., President John F. Kennedy.
                 </div>
               </div>
               <div className="user">
@@ -21,7 +21,7 @@ const Quote = () => {
                   <img src="images/logo.png" alt="RoseCrisp Adlard" />
                 </div>
                 <div className="info">
-                  <div className="name">Rose Crisp</div>
+                  <div className="name">Alex Jordan</div>
                   <div className="company">wwww.aprendeconsulting.com</div>
                 </div>
                 <div className="clear" />

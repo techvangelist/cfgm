@@ -12,14 +12,27 @@
 
 - name: Build Docker Image
   ansible.builtin.command:
-    cmd: docker build -t {{container_name}} .
+    cmd: docker build -t {{ image_name }}:{{ image_tag }} .
   args:
     chdir: ./cfgmdir/reactjsapp  # Specify the directory of your Dockerfile if not in home directory
   become: false  # Run as the current user
 
+- name: Login to Quay.io
+  ansible.builtin.command:
+    cmd: "docker login quay.io -u '{{ quay_username }}' -p '{{ quay_password }}'"
+  no_log: true
+
+- name: Tag the Docker image
+  ansible.builtin.shell:
+    cmd: "docker tag {{image_name}}:{{ image_tag }} quay.io/{{ quay_username }}/{{ image_name }}:{{ image_tag }}"
+
+- name: Push the Docker image to Quay.io
+  ansible.builtin.shell:
+    cmd: "docker push quay.io/{{ quay_username }}/{{ image_name }}:{{ image_tag }}"
+
 - name: Run Docker Container
   ansible.builtin.command:
-    cmd: docker run -d -p 3000:3000 {{container_name}}
+    cmd: docker run -d -p 3000:3000 quay.io/{{ quay_username }}/{{image_name}}:{{ image_tag }}
   become: false  # Run as the current user
   register: docker_run_output
 

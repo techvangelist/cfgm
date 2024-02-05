@@ -1,5 +1,10 @@
 ### Introduction
-This project demonstrates the automation of deploying a ReactJS application on an AWS EC2 instance using Ansible. Tailored for beginners, this guide will walk you through the entire process, leveraging the Ansible playbooks found in https://github.com/rocrisp/cfgm/tree/main/ansible/playbook.
+Tailored for beginners, this project demonstrates how to:
+- Launch a virtual server on Amazon Web Services (AWS) using their EC2 (Elastic Compute Cloud) service. EC2 provides flexible, scalable computing capacity in the cloud, making it easier for developers to scale up or down depending on their needs.
+- Set up and host a ReactJS application on the virtual server.
+- All using automation tool called Ansible
+
+the automation of deploying a ReactJS application on an AWS EC2 instance using Ansible. Tailored for beginners, this guide will walk you through the entire process, leveraging the Ansible playbooks found in https://github.com/opdev/cfgm/tree/main/ansible/playbook.
 
 
 ### Understanding the Key Components
