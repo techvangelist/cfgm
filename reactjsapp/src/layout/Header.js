@@ -22,7 +22,7 @@ const Header = ({ noSideBarBtn, menus, animationText }) => {
   return (
     <header className="header">
       <div className="profile">
-        <div className="title">Alex Jordan</div>
+        <div className="title">Julie Lao</div>
         <div className="subtitle subtitle-typed">
           <TypingAnimation data={animationText} />
         </div>

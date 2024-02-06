@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 const bio_ = ` <p>
-<strong>Hello! I’m Alex Jordan.</strong>
+<strong>Hello! I’m Julie Lao.</strong>
 A seasoned DevOps Engineer with a strong focus on automation and infrastructure as code. Specializes in using Ansible to streamline software deployments, configuration management, and continuous integration processes. Demonstrates a proven track record of leveraging Ansible to enhance operational efficiencies, reduce deployment times, and ensure consistency across development, testing, and production environments. Passionate about embracing new technologies to solve complex technical challenges in cloud-based architectures.
 </p>`;
 const AboutMe = ({ bio }) => {

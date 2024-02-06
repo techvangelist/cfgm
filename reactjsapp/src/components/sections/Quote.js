@@ -17,12 +17,8 @@ const Quote = () => {
                 </div>
               </div>
               <div className="user">
-                <div className="img">
-                  <img src="images/logo.png" alt="RoseCrisp Adlard" />
-                </div>
                 <div className="info">
-                  <div className="name">Alex Jordan</div>
-                  <div className="company">wwww.aprendeconsulting.com</div>
+                  <div className="name">Julie Lao</div>
                 </div>
                 <div className="clear" />
               </div>

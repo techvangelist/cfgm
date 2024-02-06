@@ -30,7 +30,7 @@ const RecentWorks = dynamic(
 );
 
 const bio = `<p>
-<strong>Hello! I’m Alex Jordan.</strong>
+<strong>Hello! I’m Julie Lao.</strong>
 A seasoned DevOps Engineer with a strong focus on automation and infrastructure as code. Specializes in using Ansible to streamline software deployments, configuration management, and continuous integration processes. Demonstrates a proven track record of leveraging Ansible to enhance operational efficiencies, reduce deployment times, and ensure consistency across development, testing, and production environments. Passionate about embracing new technologies to solve complex technical challenges in cloud-based architectures..
 </p>`;
 
@@ -80,7 +80,7 @@ const Index3 = () => {
             style={{ backgroundImage: "url(images/headshot.jpg)" }}
           />
           {/* profile titles */}
-          <div className="title">Alex Jordan</div>
+          <div className="title">Julie Lao</div>
 
           <TypingAnimation data={animationText} />
           {/* profile socials */}
@@ -110,7 +110,7 @@ const Index3 = () => {
           </div>
           {/* profile buttons */}
           <div className="lnks">
-            <a href="/doc/alex_jordan_cv.pdf" className="lnk" download>
+            <a href="/doc/julie_lao_cv.pdf" className="lnk" download>
               <span className="text">Download CV</span>
               <span className="ion ion-android-download" />
             </a>

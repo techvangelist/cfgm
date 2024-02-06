@@ -19,7 +19,7 @@ const ContactInfo = () => {
                 <strong>Address . . . . .</strong> San Francisco, CA, USA
               </li>
               <li>
-                <strong>Email . . . . .</strong> alex.jordan.info@gmail.com
+                <strong>Email . . . . .</strong> Julie Lao.info@gmail.com
               </li>
               <li>
                 <strong>Phone . . . . .</strong> +1 415 111 1234

@@ -1,0 +1,4 @@
+.next/
+node_modules/
+public/doc/.DS_Store
+reactjsapp/public/doc/.DS_Store
