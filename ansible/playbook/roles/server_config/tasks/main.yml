@@ -1,3 +1,5 @@
+# Install and configure the server
+# Install git, yum-utils, device-mapper-persistent-data, and lvm2
 - name: Install git, yum-utils, device-mapper-persistent-data, and lvm2
   ansible.builtin.yum:
     name:
@@ -9,19 +11,22 @@
       - httpd
     state: present
     update_cache: true
-
+# Start Docker service
+# so that the Docker service starts at boot time
 - name: Start Docker service
   ansible.builtin.service:
     name: docker
     state: started
     enabled: yes
-
+# Start and enable Apache service
+# so that the Apache service starts at boot time
 - name: Start and enable Apache service
   ansible.builtin.service:
     name: httpd
     state: started
     enabled: yes
-
+# Ensure the current user is in the docker group
+# so that you can run Docker commands without using sudo
 - name: Ensure the current user is in the docker group
   ansible.builtin.user:
     name: "{{ ansible_ssh_user }}"
@@ -29,22 +34,29 @@
     append: yes
   become: true
 
+# For any traffic that comes to the server on port 80, or http, 
+# it should be redirected to the Node.js application running on port 3000.
 - name: Add VirtualHost configuration to httpd.conf
   ansible.builtin.blockinfile:
     path: /etc/httpd/conf/httpd.conf
     block: |
       <VirtualHost *:80>
-          ServerName {{subdomain_name}}.{{ domain_name }}
-          ServerAlias www.{{subdomain_name}}.{{ domain_name }}
+          ServerName {{ subdomain_name }}.{{ domain_name }}
+          ServerAlias www.{{ subdomain_name }}.{{ domain_name }}
           ProxyPreserveHost On
           ProxyPass / http://localhost:3000/
           ProxyPassReverse / http://localhost:3000/
       </VirtualHost>
-    marker: "# {mark} ANSIBLE MANAGED BLOCK for demo.{{ domain_name }}"
+    # Managing a block of configuration within the file
+    # It allows Ansible to find this block on subsequent playbook runs, 
+    # determining precisely where to apply updates or modifications without affecting 
+    # other parts of the file.
+    marker: "# {mark} ANSIBLE MANAGED BLOCK for {{ subdomain_name }}.{{ domain_name }}"
     create: yes
     backup: yes
   become: true # Run as root
 
+# Reload Apache to apply changes
 - name: Reload Apache to apply changes
   ansible.builtin.service:
     name: httpd

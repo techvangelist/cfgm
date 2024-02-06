@@ -1,24 +1,29 @@
+# Playbook for managing EC2 instances and configuring a web server
 ---
+# Play 1: Manages EC2 instances, security settings, and DNS configurations
 - name: EC2 Management
-  hosts: localhost
+  hosts: localhost # this playbook is run on the local machine
   environment:
-    AWS_PROFILE: "openedx"
-    ANSIBLE_HOST_KEY_CHECKING: False  #do I need this?
+    AWS_PROFILE: "openedx" # Specifies the AWS CLI profile to use for credentials
+    # Disables SSH key host checking for dynamic hosts; 
+    # Useful in automation to avoid manual intervention
+    ANSIBLE_HOST_KEY_CHECKING: False  
   gather_facts: no
   vars_files:
-    - vars/main.yml
+    - vars/main.yml # defines variables used for the roles listed below
   roles:
-    - security_setup
-    - ec2_management
-    - route53_config
+    - security_setup # Role for setting up security groups and rules
+    - ec2_management # Role for managing EC2 instances (creation, deletion, etc.)
+    - route53_config # Role for configuring DNS settings in AWS Route 53
 
+# Play 2: Configures the newly launched EC2 instances for web server deployment
 - name: Configure instance
-  hosts: launched
+  hosts: launched # Targets the instances tagged as 'launched' from the first play
   gather_facts: false
-  become: true
+  become: true # Enables privilege escalation, necessary for tasks requiring root access
   vars_files:
-    - vars/main.yml
-    - vars/quay_credentials.yml
+    - vars/main.yml # defines variables used for the roles listed below
+    - vars/quay_credentials.yml # Loads credentials for Quay.io, potentially for image pulling
   roles:
-    - server_config
-    - web_server_setup
+    - server_config # Role for configuring the web server
+    - web_server_setup # Role for setting up the web server

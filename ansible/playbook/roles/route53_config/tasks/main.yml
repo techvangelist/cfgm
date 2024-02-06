@@ -1,3 +1,10 @@
+#Uses DNS to look up the domain name to find out the corresponding IP address 
+#where that website lives. 
+#The DNS record set is a collection of records in a zone file that maps domain names to IP addresses. 
+#The A record maps a domain name to its corresponding IP address
+#The tasks are as follows:
+
+#1. Create a A DNS record set for the subdomain such as configmanagementcamp2024.rosecrisp.com.
 - name: Create a record set for {{ subdomain_name }}.{{ domain_name }}
   community.aws.route53:
     state: present
@@ -9,6 +16,7 @@
     overwrite: yes  # Ensures existing record is updated
   when: ec2.instances and ec2.instances[0].public_ip_address is defined
 
+#2. Create a record set for the www subdomain such as www.configmanagementcamp2024.rosecrisp.com.
 - name: Create a record set for www.{{ subdomain_name }}.{{ domain_name }}
   community.aws.route53:
     state: present

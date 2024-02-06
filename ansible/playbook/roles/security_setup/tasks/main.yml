@@ -1,28 +1,39 @@
+# A security group that controls 
+# the traffic allowed to and from the EC2 instances. 
+# When you launch an EC2 instance, you assign it to one or more security groups. 
+# The rules in these security groups define the allowed and denied communication to the 
+#instances.
+
+#Setup inbond for HTTP or HTTPS on ports 80 and 443, and ssh on port 22.
+#And setup outbound rules to anyone, anywhere, without restrictions.
+
 # Tasks related to security group
 - name: Create a security group
   ec2_group:
-    name: cfgm_my_security_group
+    name: cfgm_my_security_group # Name of the new security group.
     description: Security Group for EC2 instances
     region: "{{ region }}"
-    rules:
+    rules: # Defines the inbound rules for the security group, 
+           # specifying which traffic is allowed to reach the EC2 instances
       - proto: tcp
         from_port: 80
         to_port: 80
         cidr_ip: 0.0.0.0/0
-        rule_desc: "HTTP"
+        rule_desc: "HTTP" # Allows HTTP traffic on port 80 from any IP address
       - proto: tcp
         from_port: 443
         to_port: 443
         cidr_ip: 0.0.0.0/0
-        rule_desc: "HTTPS"
+        rule_desc: "HTTPS" # Allows HTTPS traffic on port 443, also from any IP address
       - proto: tcp
         from_port: 22
         to_port: 22
         cidr_ip: 0.0.0.0/0
-        rule_desc: "SSH"
-    rules_egress:
-      - proto: -1
-        from_port: 0
+        rule_desc: "SSH" # Allowing remote login to the EC2 instances
+    rules_egress: # Defines the outbound rules for the security group, 
+                  # specifying which traffic is allowed to leave the EC2 instances
+      - proto: -1 # proto: -1 means all protocols
+        from_port: 0 # from_port: 0 to_port: 0 indicates all ports
         to_port: 0
-        cidr_ip: 0.0.0.0/0
-  register: security_group
+        cidr_ip: 0.0.0.0/0 # to any destination
+  register: security_group # saves the output of this task into a variable for use in subsequent tasks.

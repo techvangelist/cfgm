@@ -1,8 +1,10 @@
+# Remove existing directory to ensure a clean state
 - name: Remove existing directory
   ansible.builtin.file:
     path: "./cfgmdir"
     state: absent
 
+# Clone GitHub repository to the local machine
 - name: Clone GitHub repository
   git:
     repo: "{{ github_repo }}"
@@ -10,6 +12,7 @@
     clone: yes
     update: yes
 
+# Build Docker Image from a dockerfile
 - name: Build Docker Image
   ansible.builtin.command:
     cmd: docker build -t {{ image_name }}:{{ image_tag }} .
@@ -17,19 +20,23 @@
     chdir: ./cfgmdir/reactjsapp  # Specify the directory of your Dockerfile if not in home directory
   become: false  # Run as the current user
 
+# Authenticate with Quay.io registry
 - name: Login to Quay.io
   ansible.builtin.command:
     cmd: "docker login quay.io -u '{{ quay_username }}' -p '{{ quay_password }}'"
   no_log: true
 
+# Tags the local image for push to Quay.io with the appropriate repository and tag
 - name: Tag the Docker image
   ansible.builtin.shell:
     cmd: "docker tag {{image_name}}:{{ image_tag }} quay.io/{{ quay_username }}/{{ image_name }}:{{ image_tag }}"
 
+# Task: Push the tagged Docker image to Quay.io
 - name: Push the Docker image to Quay.io
   ansible.builtin.shell:
     cmd: "docker push quay.io/{{ quay_username }}/{{ image_name }}:{{ image_tag }}"
 
+# Runs the Docker container in detached mode, mapping port 3000 from container to host
 - name: Run Docker Container
   ansible.builtin.command:
     cmd: docker run -d -p 3000:3000 quay.io/{{ quay_username }}/{{image_name}}:{{ image_tag }}
