@@ -2,7 +2,7 @@
 region: us-east-2
 instance_type: t2.micro
 ec2_instance_name: cfgm_instance
-image: ami-059cdad1f35de63c0
+image: {{ rhel_9_image }}
 key_name: cfgmkey
 ansible_ssh_user: "ec2-user"
 github_repo: "https://github.com/rocrisp/cfgm.git"
@@ -11,3 +11,6 @@ domain_name: rosecrisp.com
 subdomain_name: configmanagementcamp2024
 image_name: configmanagementcamp2024
 image_tag: v1
+rhel_8_image: ami-0b2328cfe39471740
+rhel_9_image: ami-0826022aae62647fb
+satellite_image: ami-0a92e1abab98ac1c6
